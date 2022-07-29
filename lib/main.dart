@@ -10,6 +10,10 @@ import 'jobfinderone/size_config.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 
@@ -18,10 +22,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
     return LayoutBuilder(builder: (context, constraints) {
       return OrientationBuilder(builder: (context, orientation) {
         SizeConfig().init(constraints, orientation);
@@ -52,7 +52,7 @@ class _AppListState extends State<AppList> {
       ),
       body: ListView(
         children: [
-          ExampleCard(
+          JobFinderCard(
             title: 'Job Finder One',
             onTap: () {
               Navigator.push(
@@ -63,7 +63,7 @@ class _AppListState extends State<AppList> {
               );
             }
           ),
-          ExampleCard(
+          JobFinderCard(
             title: 'Job Finder Two',
             onTap: () {
               Navigator.push(
@@ -74,7 +74,7 @@ class _AppListState extends State<AppList> {
               );
             }
           ),
-          ExampleCard(
+          JobFinderCard(
             title: 'Job Finder Three',
             onTap: () {
               Navigator.push(
@@ -85,7 +85,7 @@ class _AppListState extends State<AppList> {
               );
             }
           ),
-          ExampleCard(
+          JobFinderCard(
             title: 'Job Finder Four',
             onTap: () {
               Navigator.push(
@@ -96,7 +96,7 @@ class _AppListState extends State<AppList> {
               );
             }
           ),
-          ExampleCard(
+          JobFinderCard(
             title: 'Job Finder Five',
             onTap: () {
               Navigator.push(
@@ -113,8 +113,8 @@ class _AppListState extends State<AppList> {
   }
 }
 
-class ExampleCard extends StatelessWidget {
-  const ExampleCard({Key? key, required this.title, required this.onTap}) : super(key: key);
+class JobFinderCard extends StatelessWidget {
+  const JobFinderCard({Key? key, required this.title, required this.onTap}) : super(key: key);
   final String title;
   final Function onTap;
 
